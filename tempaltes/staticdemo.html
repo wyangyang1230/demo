@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/admin">回到首页</a>
+<ol>
+{% for one in params %}
+    <li>
+        <h2>
+            <a href="{{ one.url }}">
+                <img src="/static/images/{{ one.img }}" alt="">
+            </a>
+        </h2>
+        <h2>{{ one.name }}</h2>
+    </li>
+{% endfor %}
+</ol>
+</body>
+</html>

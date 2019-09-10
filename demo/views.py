@@ -42,3 +42,47 @@ def abc(request):
     name = "hello"
     result = template.render({'name':name})
     return HttpResponse(result)
+
+
+def tpltest(request):
+    name = "zhangsan"
+    age = 19
+    hobby = ["eat","sing","pingpang","drink"]
+    score = {"math":89,"english":90,"chinese":98}
+
+    # return render(request,"tpltest.html",{"name":name,"age":age,"hobby":hobby,"score":score})
+    return render(request,"tpltest.html",locals())
+
+def tpltest(request,age):
+    print(age)
+    print(type(age))
+    class Say(object):
+        def say(self):
+            return "hello"
+
+    name = 'zhangsan'
+    age=17
+    age = int(age)
+    hobby = ["eat","sing","pingpang","drink"]
+    score = {"math":89,"english":90,"chinese":98}
+    say = Say()
+    myjs = """
+    <script>
+    alert("hello">
+    </script>
+    """
+
+    return render(request, "tpltest.html", locals())
+
+def test(request):
+    return render(request,"statictest.html")
+
+def staticdemo(request):
+    params = [
+        {"name": "01", "img": "01.jpg", "url": "https:www.sina.com"},
+        {"name": "02", "img": "02.jpg", "url": "https:www.baidu.com"},
+        {"name": "03", "img": "03.jpg", "url": "https:www.sina.com"},
+        {"name": "04", "img": "04.jpg", "url": "https:www.taobao.com"},
+        {"name": "05", "img": "05.jpg", "url": "https:www.taobao.com"},
+    ]
+    return render(request,"staticdemo.html",locals())
